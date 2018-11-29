@@ -13,7 +13,7 @@
     <dubbo:protocol name="dubbo" default="true" port="-1"/>
     
     
-    <dubbo:annotation package="impl"/>
+    <dubbo:annotation package="org.xmm.falsework.service.impl"/>
 
 
 
