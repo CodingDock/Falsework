@@ -7,11 +7,13 @@ http://www.springframework.org/schema/mvc
 http://www.springframework.org/schema/mvc/spring-mvc-4.3.xsd">
 
 
-
     <!--********引入dubbo相关配置*************-->
     <import resource="consumer.xml"></import>
     
-    <context:component-scan base-package="controller" />
+    <!--配置springMVC仅仅扫描@Controller注解。-->
+    <context:component-scan base-package="org.xmm.falsework" use-default-filters="false">
+        <context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+    </context:component-scan>
 
     <mvc:annotation-driven>
         <mvc:message-converters>

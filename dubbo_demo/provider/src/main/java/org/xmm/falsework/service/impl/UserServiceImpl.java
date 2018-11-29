@@ -1,4 +1,4 @@
-package impl;
+package org.xmm.falsework.service.impl;
 
 import com.alibaba.dubbo.config.annotation.Service;
 import xmm.bean.User;
@@ -11,9 +11,9 @@ public class UserServiceImpl implements UserService {
     public User getUserById(int id) {
         
         User u=new User();
-        u.setUserName("张三");
-        u.setId(1);
-        u.setGender(0);
+        u.setUserName("李四");
+        u.setId(111);
+        u.setGender(1);
         return u;
     }
 }

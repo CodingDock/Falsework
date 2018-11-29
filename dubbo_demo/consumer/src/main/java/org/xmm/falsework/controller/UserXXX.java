@@ -1,4 +1,4 @@
-package controller;
+package org.xmm.falsework.controller;
 
 import com.alibaba.dubbo.config.annotation.Reference;
 import org.springframework.stereotype.Component;

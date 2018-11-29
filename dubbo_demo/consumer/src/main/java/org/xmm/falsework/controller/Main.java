@@ -1,4 +1,4 @@
-package controller;
+package org.xmm.falsework.controller;
 
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import xmm.bean.User;
