@@ -18,4 +18,9 @@
     
     <dubbo:annotation package="org.xmm.falsework.controller"/>
 
+    <!-- 提供方调用过程缺省拦截器，将拦截所有service -->
+    <dubbo:provider filter="DubboProviderFilter"/>
+    <!-- 消费方调用过程缺省拦截器，将拦截所有reference -->
+    <dubbo:consumer filter="DubboConsumerFilter"/>
+
 </beans>

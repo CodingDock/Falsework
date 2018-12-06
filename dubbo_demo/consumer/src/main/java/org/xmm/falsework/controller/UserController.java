@@ -1,6 +1,8 @@
 package org.xmm.falsework.controller;
 
 import com.alibaba.dubbo.config.annotation.Reference;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.config.PropertyPlaceholderConfigurer;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,9 +15,11 @@ import xmm.service.UserService;
 @RestController
 @RequestMapping("user")
 public class UserController {
+    static Logger logger= LoggerFactory.getLogger(UserController.class);
 
-//    @Reference
-//    private UserService userService;
+
+    @Reference
+    private UserService userService;
 
     @Autowired
     private test tst;
@@ -41,6 +45,10 @@ public class UserController {
         System.out.println(CustomizedPropertyConfigurer.getContextProperty("xxx"));
 
         System.out.println(CustomizedPropertyConfigurer.getContextProperty("jdbc.slave.url"));
+        
+        u=userService.getUserById(1);
+        logger.error("消费者controller over..."+u);
+        
         return u;
     }
     

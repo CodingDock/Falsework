@@ -1,0 +1,2 @@
+DubboConsumerFilter=xmm.util.log.DubboConsumerFilter
+DubboProviderFilter=xmm.util.log.DubboProviderFilter

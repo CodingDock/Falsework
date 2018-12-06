@@ -27,7 +27,7 @@
 
 
 	<!--********引入spring-mvc相关配置*************-->
-	<import resource="spring-mvc.xml"></import>
+	<!--<import resource="spring-mvc.xml"></import>-->
 	
 	<!--********引入spring-mb相关配置*************-->
 	<import resource="spring-mb.xml"></import>

@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
 <configuration scan="true" scanPeriod="30 seconds" debug="false">
-
+    
+    <property name="app_name" value="consumer"/>
     <!-- 定义日志文件 输出位置 -->
-    <property name="log.home_dir" value="D:/logs"/>
+    <property name="log.home_dir" value="D:/logs/${app_name}"/>
     <!-- 单个日志最大大小 7 -->
     <property name="log.maxFileSize" value="100MB"/>
     <!-- 日志最大的历史 7 -->
@@ -11,10 +12,11 @@
     <!-- 日志总大小 7 -->
     <property name="log.totalSizeCap" value="3GB"/>
     <!--日志输出级别-->
-    <property name="log.level" value="error"/>
+    <property name="log.level" value="info"/>
     <!--日志输出格式-->
     <!--<property name="patternStyle" value="%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level [%logger{60} - %M - %L]  %msg%n" />-->
-    <property name="patternStyle" value="%d{yyyy-MM-dd HH:mm:ss.SSS} [%-5level] [%logger] [%X{worker_id}] %msg%n" />
+    <!--<property name="patternStyle" value="%d{yyyy-MM-dd HH:mm:ss.SSS} [%-5level] [%logger] [%X{worker_id}] %msg%n" />-->
+    <property name="patternStyle" value="[%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%X{requestId}] [%X{requestSeq}] [%X{uri}] [%logger] %msg%n" />
 
     
     <logger name="org.springframework" level="WARN" />

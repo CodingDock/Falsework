@@ -55,5 +55,9 @@ http://www.springframework.org/schema/mvc/spring-mvc-4.3.xsd">
         <property name="url" value="${jdbc.master.url}"></property>
     </bean>
 
+    <!--静态资源配置-->
+    <mvc:resources mapping="/res/** " location="/res/" cache-period="31556926"/>
+
+
     <import resource="spring-config.xml"/>
 </beans>

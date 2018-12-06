@@ -48,4 +48,27 @@
     <filter-name>encodingFilter</filter-name>
     <url-pattern>/*</url-pattern>
   </filter-mapping>
+
+  <filter>
+    <filter-name>LogingMDCFilter</filter-name>
+    <filter-class>xmm.util.log.LogingMDCFilter</filter-class>
+    <init-param>
+      <param-name>mappedCookies</param-name>
+      <param-value>false</param-value>
+    </init-param>
+    <init-param>
+      <param-name>mappedHeaders</param-name>
+      <param-value>false</param-value>
+    </init-param>
+    <init-param>
+      <param-name>mappedParameters</param-name>
+      <param-value>false</param-value>
+    </init-param>
+  </filter>
+  <filter-mapping>
+    <filter-name>LogingMDCFilter</filter-name>
+    <url-pattern>/*</url-pattern>
+  </filter-mapping>
+  
+  
 </web-app>

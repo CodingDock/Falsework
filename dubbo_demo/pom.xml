@@ -204,7 +204,7 @@
       <scope>test</scope>
     </dependency>
 
-    <!--dubbo-->
+    <!--META-INF.dubbo-->
     <dependency>
       <groupId>com.alibaba</groupId>
       <artifactId>dubbo</artifactId>
