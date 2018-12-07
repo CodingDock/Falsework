@@ -21,13 +21,13 @@
 
 
     <!-- 引入配置文件 -->
-    <bean id="propertyConfigurer" class="org.xmm.falsework.util.CustomizedPropertyConfigurer">
+    <bean id="propertyConfigurer" class="xmm.util.CustomizedPropertyConfigurer">
         <property name="systemPropertiesModeName" value="SYSTEM_PROPERTIES_MODE_OVERRIDE"/>
         <property name="ignoreResourceNotFound" value="true"/>
         <property name="locations">
             <list>
-                <value>classpath:dev.properties</value>
-                <value>classpath:common.properties</value>
+				<value>classpath:props/common.properties</value>
+				<value>classpath:props/dev.properties</value>
                 <value>file:${CEEHOO_TEST_HOME}/apps/test.properties</value>
                 <value>file:${CEEHOO_HOME}/apps/lamppa-eclass-production.properties</value>
             </list>
@@ -37,7 +37,7 @@
 
 
 	<!--********引入mybatis相关配置*************-->
-	<import resource="spring-mvc.xml"></import>
+	<!--<import resource="spring-mvc.xml"></import>-->
 
     <!--********引入mybatis相关配置*************-->
     <import resource="spring-mb.xml"></import>
@@ -54,4 +54,7 @@
 
 
 	<!--<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver"/>-->
+
+    <!--<import resource="spring-config.xml"/>-->
+
 </beans>

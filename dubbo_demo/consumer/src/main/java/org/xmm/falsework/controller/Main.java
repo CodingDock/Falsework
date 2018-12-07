@@ -1,12 +1,11 @@
 package org.xmm.falsework.controller;
 
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-import xmm.bean.User;
 
 public class Main {
 
     public static void main(String[] args) {
-        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext(new String[]{"applicationContext.xml"});
+        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext(new String[]{"spring/applicationContext.xml"});
         context.start();
 
 //        UserController userXXX=context.getBean(UserController.class);

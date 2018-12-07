@@ -59,5 +59,4 @@ http://www.springframework.org/schema/mvc/spring-mvc-4.3.xsd">
     <mvc:resources mapping="/res/** " location="/res/" cache-period="31556926"/>
 
 
-    <import resource="spring-config.xml"/>
 </beans>

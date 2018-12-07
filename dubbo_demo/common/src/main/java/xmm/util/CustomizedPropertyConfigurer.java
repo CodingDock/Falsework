@@ -1,4 +1,4 @@
-package org.xmm.falsework.util;
+package xmm.util;
 
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.config.ConfigurableListableBeanFactory;

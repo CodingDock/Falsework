@@ -12,25 +12,35 @@
 		http://www.springframework.org/schema/task/spring-task-4.3.xsd
 ">
 		 
-	<!--     spring 总配置文件    -->
+	
 
-    <!-- 自动扫描需要用到自动注解的包，并排除@Controller注解 -->
+
+	<!-- 自动扫描需要用到自动注解的包，并排除@Controller注解 -->
 	<context:component-scan base-package="org.xmm.falsework">
 		<context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
 	</context:component-scan>
 
-	<!--配置文件加载-->
-	<!--<bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
-		<property name="location" value="classpath:dev.properties" />
-		<property name="fileEncoding" value="utf-8" />
-	</bean>-->
+	<!-- 引入配置文件 -->
+	<bean id="propertyConfigurer" class="xmm.util.CustomizedPropertyConfigurer">
+		<property name="systemPropertiesModeName" value="SYSTEM_PROPERTIES_MODE_OVERRIDE"/>
+		<property name="ignoreResourceNotFound" value="true"/>
+		<property name="locations">
+			<list>
+				<value>classpath:props/common.properties</value>
+				<value>classpath:props/dev.properties</value>
+				<value>file:${CEEHOO_TEST_HOME}/apps/test.properties</value>
+				<value>file:${CEEHOO_HOME}/apps/lamppa-eclass-production.properties</value>
+			</list>
+		</property>
+		<property name="ignoreUnresolvablePlaceholders" value="true"/>
+	</bean>
 
 
 	<!--********引入spring-mvc相关配置*************-->
 	<!--<import resource="spring-mvc.xml"></import>-->
 	
 	<!--********引入spring-mb相关配置*************-->
-	<import resource="spring-mb.xml"></import>
+	<import resource="spring-mybatis.xml"></import>
 
 	<!--********引入dubbo相关配置*************-->
 	<import resource="provider.xml"></import>
@@ -49,8 +59,8 @@
 	<!--<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver"/>-->
 
 
-	<import resource="spring-config.xml"/>
-
+	<!--     spring 总配置文件    -->
+	<!--<import resource="spring-config.xml"/>-->
 
 
 </beans>

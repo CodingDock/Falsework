@@ -1,8 +1,6 @@
 package xmm.util.log;
 
 import org.slf4j.MDC;
-import xmm.util.log.MDCConstants;
-import xmm.util.log.MDCUtils;
 
 import javax.servlet.*;
 import javax.servlet.http.Cookie;
@@ -82,7 +80,6 @@ public class LogingMDCFilter implements Filter {
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
         HttpServletRequest hsr = (HttpServletRequest)servletRequest;
         try {
-            System.out.println("--------------------日志处理");
             mdc(hsr);
         } catch (Exception e) {
             System.err.println("设置日志MDC错误");

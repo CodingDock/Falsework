@@ -10,8 +10,6 @@
 
 
 	<!--**********************mysql  druid数据源相关配置*************************-->
-
-
 	<bean id="masterDataSource" class="com.alibaba.druid.pool.DruidDataSource"
 		init-method="init" destroy-method="close">
 		<!-- 基本属性 url、user、password -->
@@ -24,7 +22,7 @@
 		<!-- 配置初始化大小、最小、最大 -->
 		<property name="initialSize" value="10" />
 		<property name="minIdle" value="10" />
-		<property name="maxActive" value="100" />
+		<property name="maxActive" value="50" />
 
 		<!-- 配置获取连接等待超时的时间 timeout -->
 		<property name="maxWait" value="10000"  />
@@ -44,7 +42,7 @@
 
 		<property name="connectionProperties" value="druid.stat.slowSqlMillis=2000" />
 		<!-- 配置防御sql注入-->
-		<property name="filters" value="stat,wall,slf4j" />
+		<property name="filters" value="stat" />
 	</bean>
 
 
@@ -54,29 +52,25 @@
 	<!-- ==========针对myBatis的配置项================= -->
 	
 	<!-- 配置sqlSessionFactory -->
-	<bean id="masterSqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+	<bean id="masterSqlSessionFactory" class="com.baomidou.mybatisplus.extension.spring.MybatisSqlSessionFactoryBean">
 		<!-- 实例化sqlSessionFactory时需要使用上述配置好的数据源以及SQL映射文件 -->
 		<property name="dataSource" ref="masterDataSource" />
-		<property name="mapperLocations" value="classpath*:/mappers/*Mapper.xml" />
-		<property name="typeAliasesPackage" value="com.test.user.bean" />
-	</bean>
-
-
-	<bean id="masterSqlSessionTemplate" class="org.mybatis.spring.SqlSessionTemplate">
-		<constructor-arg index="0" ref="masterSqlSessionFactory" />
-	</bean>
-
-	<!--註解方式-->
-	<!--<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">-->
-		<!--<property name="dataSource" ref="masterDataSource" />-->
 		<!--<property name="mapperLocations" value="classpath*:/mappers/*Mapper.xml" />-->
-		<!--<property name="typeAliasesPackage" value="-->
-			<!--com.mb2.bean"/>-->
-	<!--</bean>-->
+		<property name="typeAliasesPackage" value="org.xmm.falsework.entity" />
+		<property name="configLocation" value="classpath:spring/mybatis-config.xml"/>
+		<property name="plugins">
+			<array>
+				<!-- 分页插件配置 -->
+				<bean id="paginationInterceptor" class="com.baomidou.mybatisplus.extension.plugins.PaginationInterceptor">
+					<property name="dialectType" value="mysql"/>
+				</bean>
+			</array>
+		</property>
+	</bean>
 
 	
 	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-		<property name="basePackage" value="com.mb2.dao" />
+		<property name="basePackage" value="org.xmm.falsework" />
 		<property name="sqlSessionFactoryBeanName" value="masterSqlSessionFactory" />
 	</bean>
 

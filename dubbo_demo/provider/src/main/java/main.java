@@ -17,16 +17,7 @@ public class main {
 
     public static void main(String[] args) throws IOException {
 
-        /**Logback动态修改日志级别
-            LoggerContext loggerContext = (LoggerContext) LoggerFactory.getILoggerFactory();
-            loggerContext.getLogger("main").setLevel(Level.valueOf("TRACE"));
-         */
         
-        logger.trace("trace log...");
-        logger.debug("debug log...");
-        logger.info("info log...");
-        logger.warn("warn log...");
-        logger.error("error log...");
 
     }
     
@@ -35,11 +26,27 @@ public class main {
 
         ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext(new String[]{"spring/applicationContext.xml"});
         context.start();
+        
+        
+        
+        
 
         System.in.read();
         
     }
 
+    
+    static void log(){
+        /**Logback动态修改日志级别
+         LoggerContext loggerContext = (LoggerContext) LoggerFactory.getILoggerFactory();
+         loggerContext.getLogger("main").setLevel(Level.valueOf("TRACE"));
+         */
+
+        logger.trace("trace log...");
+        logger.debug("debug log...");
+        logger.info("info log...");
+        logger.warn("warn log...");
+    }
 
     
     
