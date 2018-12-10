@@ -6,10 +6,10 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import xmm.util.CustomizedPropertyConfigurer;
+import org.xmm.falsework.xmm.util.CustomizedPropertyConfigurer;
 import org.xmm.falsework.util.test;
-import xmm.bean.User;
-import xmm.service.UserService;
+import org.xmm.falsework.xmm.bean.User;
+import org.xmm.falsework.xmm.service.UserService;
 
 @RestController
 @RequestMapping("user")

@@ -1,6 +1,6 @@
-package xmm.service;
+package org.xmm.falsework.xmm.service;
 
-import xmm.bean.User;
+import org.xmm.falsework.xmm.bean.User;
 
 import java.util.List;
 

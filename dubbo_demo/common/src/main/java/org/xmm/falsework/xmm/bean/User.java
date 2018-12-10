@@ -1,4 +1,4 @@
-package xmm.bean;
+package org.xmm.falsework.xmm.bean;
 
 
 import java.io.Serializable;

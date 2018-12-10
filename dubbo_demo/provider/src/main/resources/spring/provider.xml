@@ -13,7 +13,7 @@
     <dubbo:protocol name="dubbo" default="true" port="-1"/>
     
     
-    <dubbo:annotation package="org.xmm.falsework.service.impl"/>
+    <dubbo:annotation package="org..xmm.falsework.service.impl"/>
 
 
     <!-- 提供方调用过程缺省拦截器，将拦截所有service -->
