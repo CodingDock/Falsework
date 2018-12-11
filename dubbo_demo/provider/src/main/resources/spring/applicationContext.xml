@@ -47,7 +47,7 @@
 	<!--********引入spring-mb相关配置*************-->
 	<import resource="spring-mybatis.xml"></import>
 
-	<!--********引入dubbo相关配置*************-->
+	<!--********引入dubbo相关配置*************-->  
 	<import resource="provider.xml"></import>
 
 
@@ -67,7 +67,7 @@
 	<!--     spring 总配置文件    -->
 	<!--<import resource="spring-config.xml"/>-->
 
-	<!--代理配置-->
+	<!--aop代理配置-->
 	<aop:aspectj-autoproxy proxy-target-class="true" />
 	
 
