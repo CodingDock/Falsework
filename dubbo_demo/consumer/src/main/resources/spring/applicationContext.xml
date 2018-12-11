@@ -21,7 +21,7 @@
 
 
     <!-- 引入配置文件 -->
-    <bean id="propertyConfigurer" class="org.xmm.falsework.xmm.util.CustomizedPropertyConfigurer">
+    <bean id="propertyConfigurer" class="org.xmm.falsework.util.CustomizedPropertyConfigurer">
         <property name="systemPropertiesModeName" value="SYSTEM_PROPERTIES_MODE_OVERRIDE"/>
         <property name="ignoreResourceNotFound" value="true"/>
         <property name="locations">

@@ -8,10 +8,10 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.xmm.falsework.dao.UserMapper;
 import org.xmm.falsework.entity.User;
-import org.xmm.falsework.xmm.service.UserService;
-import org.xmm.falsework.xmm.util.CustomizedPropertyConfigurer;
-import org.xmm.falsework.xmm.util.dynamicdb.DataSourceEnum;
-import org.xmm.falsework.xmm.util.dynamicdb.DynamicDSAnno;
+import org.xmm.falsework.service.UserService;
+import org.xmm.falsework.util.dynamicdb.DataSourceEnum;
+import org.xmm.falsework.util.CustomizedPropertyConfigurer;
+import org.xmm.falsework.util.dynamicdb.DynamicDSAnno;
 
 import java.util.List;
 import java.util.Map;
@@ -25,9 +25,9 @@ public class UserServiceImpl implements UserService {
     UserMapper userMapper;
 
     @Override
-    public org.xmm.falsework.xmm.bean.User getUserById(int id) {
+    public org.xmm.falsework.bean.User getUserById(int id) {
         logger.error("coming....");
-        org.xmm.falsework.xmm.bean.User u=new org.xmm.falsework.xmm.bean.User();
+        org.xmm.falsework.bean.User u=new org.xmm.falsework.bean.User();
         u.setUserName("李四");
         u.setId(111);
         u.setGender(1);

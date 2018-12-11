@@ -77,10 +77,10 @@
 	</bean>
 
 	<!---->
-	<bean id="dataSource" class="org.xmm.falsework.xmm.util.dynamicdb.DynamicDataSource" lazy-init="true">
+	<bean id="dataSource" class="org.xmm.falsework.util.dynamicdb.DynamicDataSource" lazy-init="true">
 		<description>数据源</description>
 		<property name="targetDataSources">
-			<map key-type="org.xmm.falsework.xmm.util.dynamicdb.DataSourceEnum" value-type="javax.sql.DataSource">
+			<map key-type="org.xmm.falsework.util.dynamicdb.DataSourceEnum" value-type="javax.sql.DataSource">
 				<entry key="MASTER" value-ref="masterDataSource" />
 				<entry key="SLAVE_01" value-ref="slave01DataSource" />
 			</map>

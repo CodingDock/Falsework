@@ -1,2 +1,2 @@
-DubboConsumerFilter=org.xmm.falsework.xmm.util.log.DubboConsumerFilter
-DubboProviderFilter=org.xmm.falsework.xmm.util.log.DubboProviderFilter
+DubboConsumerFilter=org.xmm.falsework.util.log.DubboConsumerFilter
+DubboProviderFilter=org.xmm.falsework.util.log.DubboProviderFilter

@@ -55,7 +55,7 @@
 
   <filter>
     <filter-name>LogingMDCFilter</filter-name>
-    <filter-class>org.xmm.falsework.xmm.util.log.LogingMDCFilter</filter-class>
+    <filter-class>org.xmm.falsework.util.log.LogingMDCFilter</filter-class>
     <init-param>
       <param-name>mappedCookies</param-name>
       <param-value>false</param-value>

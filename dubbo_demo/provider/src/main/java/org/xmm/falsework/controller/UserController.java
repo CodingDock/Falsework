@@ -7,8 +7,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.xmm.falsework.util.Config;
 import org.xmm.falsework.util.test;
-import org.xmm.falsework.xmm.bean.User;
-import org.xmm.falsework.xmm.service.UserService;
+import org.xmm.falsework.bean.User;
+import org.xmm.falsework.service.UserService;
 
 @RestController
 @RequestMapping("user")

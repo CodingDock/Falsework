@@ -2,8 +2,8 @@ package org.xmm.falsework.controller;
 
 import com.alibaba.dubbo.config.annotation.Reference;
 import org.springframework.stereotype.Component;
-import org.xmm.falsework.xmm.bean.User;
-import org.xmm.falsework.xmm.service.UserService;
+import org.xmm.falsework.bean.User;
+import org.xmm.falsework.service.UserService;
 
 @Component
 public class UserXXX {
