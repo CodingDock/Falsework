@@ -37,10 +37,10 @@
 
 
 	<!--********引入mybatis相关配置*************-->
-	<!--<import resource="spring-mvc.xml"></import>-->
+	<!--<import resource="spring-mvc.xml"/>-->
 
     <!--********引入mybatis相关配置*************-->
-    <import resource="spring-mb.xml"></import>
+    <import resource="spring-mb.xml"/>
 
 
 

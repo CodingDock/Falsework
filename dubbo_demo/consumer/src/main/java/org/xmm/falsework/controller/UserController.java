@@ -50,5 +50,12 @@ public class UserController {
         
         return u;
     }
+
+    @RequestMapping("log")
+    public void log(){
+        logger.error("hahahahahahahahah ");
+        
+    }
+    
     
 }

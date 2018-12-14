@@ -50,6 +50,6 @@
         </property>
     </bean>
 
-    <import resource="spring-config.xml"/>
+    <!--<import resource="spring-config.xml"/>-->
 
 </beans>

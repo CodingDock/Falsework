@@ -16,7 +16,7 @@
     <!-- generate proxy for the remote service, then demoService can be used in the same way as the
     local regular interface -->
     
-    <dubbo:annotation package="org..xmm.falsework.controller"/>
+    <dubbo:annotation package="org.xmm.falsework.controller"/>
 
     <!-- 提供方调用过程缺省拦截器，将拦截所有service -->
     <dubbo:provider filter="DubboProviderFilter"/>

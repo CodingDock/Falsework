@@ -45,10 +45,10 @@
 	<!--<import resource="spring-mvc.xml"></import>-->
 	
 	<!--********引入spring-mb相关配置*************-->
-	<import resource="spring-mybatis.xml"></import>
+	<import resource="spring-mybatis.xml"/>
 
 	<!--********引入dubbo相关配置*************-->  
-	<import resource="provider.xml"></import>
+	<import resource="provider.xml"/>
 
 
 

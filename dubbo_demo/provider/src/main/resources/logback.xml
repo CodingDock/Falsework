@@ -4,7 +4,7 @@
 
     <property name="app_name" value="provider"/>
     <!-- 定义日志文件 输出位置 -->
-    <property name="log.home_dir" value="D:/logs/${app_name}"/>
+    <property name="log.home_dir" value="../logs/${app_name}"/>
     <!-- 单个日志最大大小 7 -->
     <property name="log.maxFileSize" value="100MB"/>
     <!-- 日志最大的历史 7 -->
