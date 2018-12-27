@@ -43,7 +43,7 @@ public class WangNetty4Out3Server {
         try {
             bootstrap.group(boss, work)
             .channel(NioServerSocketChannel.class)
-            .handler(new LoggingHandler(LogLevel.DEBUG))
+//            .handler(new LoggingHandler(LogLevel.DEBUG))
             .option(ChannelOption.SO_BACKLOG, 1024)
 //            .option(ChannelOption.SO_TIMEOUT, 5 * 1000)
             .childOption(ChannelOption.SO_KEEPALIVE, true)

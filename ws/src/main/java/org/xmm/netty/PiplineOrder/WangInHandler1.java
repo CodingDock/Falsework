@@ -10,7 +10,7 @@ public class WangInHandler1 extends ChannelInboundHandlerAdapter {
     @Override
     public void channelRead(ChannelHandlerContext ctx, Object msg)
             throws Exception {
-        // TODO Auto-generated method stub
+        
         System.out.println(" WangInHandler1  channelRead");
         String ss=NettyUtil.parseByteBufMsg(msg);
         System.out.println(" WangInHandler1 receive:"+ ss);
@@ -21,14 +21,16 @@ public class WangInHandler1 extends ChannelInboundHandlerAdapter {
             ReferenceCountUtil.release(msg);
             return;
         }
+        ctx.write(NettyUtil.packageStringToByteBuf("WangInHandler1   hahahahah"));
         ctx.fireChannelRead(msg);
+        ctx.write(NettyUtil.packageStringToByteBuf("WangInHandler1   2222"));
 //        ctx.writeAndFlush("WangInHandler1   hahahahah");
         System.out.println(" WangInHandler1  channelRead over");
     }
     
             @Override
     public void channelReadComplete(ChannelHandlerContext ctx) throws Exception {
-        // TODO Auto-generated method stub
+        
         System.out.println(" WangInHandler1  channelReadComplete");
         super.channelReadComplete(ctx);
         
@@ -37,7 +39,7 @@ public class WangInHandler1 extends ChannelInboundHandlerAdapter {
             @Override
     public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause)
             throws Exception {
-        // TODO Auto-generated method stub
+        
         System.out.println(" WangInHandler1  exceptionCaught");
         super.exceptionCaught(ctx, cause);
         
@@ -45,7 +47,7 @@ public class WangInHandler1 extends ChannelInboundHandlerAdapter {
     
             @Override
     public void channelActive(ChannelHandlerContext ctx) throws Exception {
-        // TODO Auto-generated method stub
+        
         System.out.println(" WangInHandler1  channelActive");
         super.channelActive(ctx);
         
@@ -53,7 +55,7 @@ public class WangInHandler1 extends ChannelInboundHandlerAdapter {
 
     @Override
     public void channelInactive(ChannelHandlerContext ctx) throws Exception {
-        // TODO Auto-generated method stub
+        
         System.out.println(" WangInHandler1  channelInactive");
         super.channelInactive(ctx);
         
@@ -61,7 +63,7 @@ public class WangInHandler1 extends ChannelInboundHandlerAdapter {
     
             @Override
     public void channelRegistered(ChannelHandlerContext ctx) throws Exception {
-        // TODO Auto-generated method stub
+        
         System.out.println(" WangInHandler1  channelRegistered");
         super.channelRegistered(ctx);
         
@@ -69,7 +71,7 @@ public class WangInHandler1 extends ChannelInboundHandlerAdapter {
     
             @Override
     public void channelUnregistered(ChannelHandlerContext ctx) throws Exception {
-        // TODO Auto-generated method stub
+        
         System.out.println(" WangInHandler1  channelUnregistered");
         super.channelUnregistered(ctx);
         
@@ -78,7 +80,7 @@ public class WangInHandler1 extends ChannelInboundHandlerAdapter {
             @Override
     public void channelWritabilityChanged(ChannelHandlerContext ctx)
             throws Exception {
-        // TODO Auto-generated method stub
+        
         System.out.println(" WangInHandler1  channelWritabilityChanged");
         super.channelWritabilityChanged(ctx);
         
@@ -87,7 +89,7 @@ public class WangInHandler1 extends ChannelInboundHandlerAdapter {
             @Override
     public void userEventTriggered(ChannelHandlerContext ctx, Object evt)
             throws Exception {
-        // TODO Auto-generated method stub
+        
         System.out.println(" WangInHandler1  userEventTriggered");
         super.userEventTriggered(ctx, evt);
         

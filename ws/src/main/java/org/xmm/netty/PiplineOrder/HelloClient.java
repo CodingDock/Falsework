@@ -2,6 +2,7 @@ package org.xmm.netty.PiplineOrder;
 
 import io.netty.bootstrap.Bootstrap;
 import io.netty.bootstrap.ServerBootstrap;
+import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;
 import io.netty.channel.*;
 import io.netty.channel.nio.NioEventLoopGroup;
@@ -11,6 +12,7 @@ import io.netty.handler.codec.http.websocketx.CloseWebSocketFrame;
 import io.netty.handler.codec.http.websocketx.PingWebSocketFrame;
 import io.netty.handler.codec.http.websocketx.TextWebSocketFrame;
 import io.netty.handler.codec.http.websocketx.WebSocketFrame;
+import org.xmm.netty.NettyUtil;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -31,15 +33,17 @@ public class HelloClient {
 
                     @Override
                     protected void initChannel(SocketChannel ch) throws Exception {
-                        ch.pipeline().addLast(new SimpleChannelInboundHandler<String>() {
+                        ch.pipeline().addLast(new SimpleChannelInboundHandler<ByteBuf>() {
                             @Override
-                            protected void channelRead0(ChannelHandlerContext ctx, String msg) throws Exception {
-                                System.out.println("msg from server:"+msg);
+                            protected void channelRead0(ChannelHandlerContext ctx, ByteBuf msg) throws Exception {
+                                System.out.println("msg from server:"+NettyUtil.parseByteBufMsg(msg));
                             }
                         });
                     }
                 });
             Channel channel = bootstrap.connect(ip, port).sync().channel();
+
+            System.out.println("链接成功……");
 
             BufferedReader console = new BufferedReader(new InputStreamReader(System.in));
             while (true) {
@@ -47,11 +51,11 @@ public class HelloClient {
                 if (msg == null) {
                     continue;
                 } else if ("bye".equals(msg.toLowerCase())) {
-                    channel.writeAndFlush("bye");
+                    channel.writeAndFlush(NettyUtil.packageStringToByteBuf("bye"));
                     channel.closeFuture().sync();
                     break;
                 } else {
-                    channel.writeAndFlush(msg);
+                    channel.writeAndFlush(NettyUtil.packageStringToByteBuf(msg));
                 }
             }
 

@@ -1,26 +1,37 @@
-package org.xmm.netty.PiplineOrder;
+package com.lammpa.eclass.ws.common.handler;
 
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInboundHandlerAdapter;
+import io.netty.util.ReferenceCountUtil;
 import org.xmm.netty.NettyUtil;
 
-public class WangInHandler3 extends ChannelInboundHandlerAdapter {
+public class HeartBeatHandler extends ChannelInboundHandlerAdapter {
 
     @Override
     public void channelRead(ChannelHandlerContext ctx, Object msg)
             throws Exception {
         
-        System.out.println(" WangInHandler3  channelRead");
-        System.out.println("WangInHandler3  channelRead receive:"+NettyUtil.parseByteBufMsg(msg));
-        ctx.writeAndFlush(NettyUtil.packageStringToByteBuf(" I am inHandler3"));//最后一个indhandler需要ctx.write()而不能使用下面2行
-        System.out.println(" WangInHandler3  channelRead over");
-
+        System.out.println(" WangInHandler1  channelRead");
+        String ss=NettyUtil.parseByteBufMsg(msg);
+        System.out.println(" WangInHandler1 receive:"+ ss);
+        if("a".equals(ss)){
+//            ctx.writeAndFlush(NettyUtil.packageStringToByteBuf("WangInHandler1   hahahahah"));
+            ctx.writeAndFlush("WangInHandler1   hahahahah");
+            System.out.println("WangInHandler1 return ");
+            ReferenceCountUtil.release(msg);
+            return;
+        }
+        ctx.write(NettyUtil.packageStringToByteBuf("WangInHandler1   hahahahah"));
+        ctx.fireChannelRead(msg);
+        ctx.write(NettyUtil.packageStringToByteBuf("WangInHandler1   2222"));
+//        ctx.writeAndFlush("WangInHandler1   hahahahah");
+        System.out.println(" WangInHandler1  channelRead over");
     }
     
             @Override
     public void channelReadComplete(ChannelHandlerContext ctx) throws Exception {
         
-        System.out.println(" WangInHandler3  channelReadComplete");
+        System.out.println(" WangInHandler1  channelReadComplete");
         super.channelReadComplete(ctx);
         
     }
@@ -29,7 +40,7 @@ public class WangInHandler3 extends ChannelInboundHandlerAdapter {
     public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause)
             throws Exception {
         
-        System.out.println(" WangInHandler3  exceptionCaught");
+        System.out.println(" WangInHandler1  exceptionCaught");
         super.exceptionCaught(ctx, cause);
         
     }
@@ -37,7 +48,7 @@ public class WangInHandler3 extends ChannelInboundHandlerAdapter {
             @Override
     public void channelActive(ChannelHandlerContext ctx) throws Exception {
         
-        System.out.println(" WangInHandler3  channelActive");
+        System.out.println(" WangInHandler1  channelActive");
         super.channelActive(ctx);
         
     }
@@ -45,7 +56,7 @@ public class WangInHandler3 extends ChannelInboundHandlerAdapter {
     @Override
     public void channelInactive(ChannelHandlerContext ctx) throws Exception {
         
-        System.out.println(" WangInHandler3  channelInactive");
+        System.out.println(" WangInHandler1  channelInactive");
         super.channelInactive(ctx);
         
     }
@@ -53,7 +64,7 @@ public class WangInHandler3 extends ChannelInboundHandlerAdapter {
             @Override
     public void channelRegistered(ChannelHandlerContext ctx) throws Exception {
         
-        System.out.println(" WangInHandler3  channelRegistered");
+        System.out.println(" WangInHandler1  channelRegistered");
         super.channelRegistered(ctx);
         
     }
@@ -61,7 +72,7 @@ public class WangInHandler3 extends ChannelInboundHandlerAdapter {
             @Override
     public void channelUnregistered(ChannelHandlerContext ctx) throws Exception {
         
-        System.out.println(" WangInHandler3  channelUnregistered");
+        System.out.println(" WangInHandler1  channelUnregistered");
         super.channelUnregistered(ctx);
         
     }
@@ -70,7 +81,7 @@ public class WangInHandler3 extends ChannelInboundHandlerAdapter {
     public void channelWritabilityChanged(ChannelHandlerContext ctx)
             throws Exception {
         
-        System.out.println(" WangInHandler3  channelWritabilityChanged");
+        System.out.println(" WangInHandler1  channelWritabilityChanged");
         super.channelWritabilityChanged(ctx);
         
     }
@@ -79,7 +90,8 @@ public class WangInHandler3 extends ChannelInboundHandlerAdapter {
     public void userEventTriggered(ChannelHandlerContext ctx, Object evt)
             throws Exception {
         
-        System.out.println(" WangInHandler3  userEventTriggered");
+        System.out.println(" WangInHandler1  userEventTriggered");
         super.userEventTriggered(ctx, evt);
+        
     }
 }
