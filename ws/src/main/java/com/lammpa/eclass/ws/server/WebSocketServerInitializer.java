@@ -46,7 +46,7 @@ public class WebSocketServerInitializer extends ChannelInitializer<SocketChannel
             pipeline.addLast(sslCtx.newHandler(ch.alloc()));
         }
         
-        pipeline.addLast("ping&pong",new IdleStateHandler(30,30,60));
+        pipeline.addLast("ping&pong",new IdleStateHandler(30,0,0));
         
         
         pipeline.addLast(new HttpServerCodec());
@@ -58,4 +58,6 @@ public class WebSocketServerInitializer extends ChannelInitializer<SocketChannel
         
         
     }
+    
+    
 }

@@ -15,6 +15,8 @@
  */
 package org.xmm.netty.officialdemo.websocketx.server;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Locale;
 
 import io.netty.channel.Channel;
@@ -59,7 +61,7 @@ public class WebSocketFrameHandler extends SimpleChannelInboundHandler<WebSocket
             channel.writeAndFlush(new TextWebSocketFrame("[SERVER] - " + incoming.remoteAddress() + " 加入"));
         }
         channels.add(ctx.channel());
-        System.out.println("Client:"+incoming.remoteAddress() +"加入");
+        System.out.println("Client:"+incoming.remoteAddress() +"加入："+new SimpleDateFormat("HH:mm:ss:SSS").format(new Date()));
     }
 
     @Override

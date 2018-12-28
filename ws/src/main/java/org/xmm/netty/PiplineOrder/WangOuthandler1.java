@@ -53,7 +53,9 @@ public class WangOuthandler1 extends ChannelOutboundHandlerAdapter{
         System.out.println("WangOuthandler1 receive " +NettyUtil.parseByteBufMsg(msg));
         System.out.println("WangOuthandler1 send WangOuthandler1");
         ctx.writeAndFlush(NettyUtil.packageStringToByteBuf("WangOuthandler1"));
-//        super.write(ctx, msg, promise);
+//      下面是错误写法，会引起死循环，OutboundHandler里不能调用ctx.channel()的方法，尤其是write
+//      ctx.channel().writeAndFlush(NettyUtil.packageStringToByteBuf("WangOuthandler1"));
+//      super.write(ctx, msg, promise);
     }
     
             public void flush(ChannelHandlerContext ctx) throws Exception {
